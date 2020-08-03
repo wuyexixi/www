@@ -1,8 +1,9 @@
 FROM golang:1.13
 
-WORKDIR /go/src/app
+WORKDIR /go/src/www
 COPY . .
-RUN go get -d -v ./...
-RUN go install -v ./...
 
-CMD ["app"]
+RUN go get -d -v ./...
+RUN go build main.go
+
+CMD ["main"]
